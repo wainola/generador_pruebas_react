@@ -1,34 +1,24 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import {Container, Grid} from 'semantic-ui-react'
+import {Container, Grid} from 'semantic-ui-react';
+import Navbar from './components/navbar';
+import FormDatos from './components/ingreso_datos';
 
 class App extends Component {
   render() {
     return (
       <div className="">
         <Container>
-          <Grid columns={3} divided>
+          <Navbar />
+          <Grid columns={2}>
             <Grid.Row>
               <Grid.Column>
-                <h1>GRID</h1>
+                <FormDatos />
               </Grid.Column>
               <Grid.Column>
-                <h1>GRID</h1>
-              </Grid.Column>
-              <Grid.Column>
-                <h1>GRID</h1>
-              </Grid.Column>
-            </Grid.Row>
-
-            <Grid.Row>
-              <Grid.Column>
-                <h1>GRID</h1>
-              </Grid.Column>
-              <Grid.Column>
-                <h1>GRID</h1>
-              </Grid.Column>
-              <Grid.Column>
-                <h1>GRID</h1>
+                <p>
+                  Aca van los datos de las pruebas ingresadas anteriormente
+                </p>
               </Grid.Column>
             </Grid.Row>
           </Grid>
