@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,25 @@
   "bugs": {
     "url": "https://github.com/wainola/semantic_react/issues"
   },
-  "homepage": "https://github.com/wainola/semantic_react#readme"
+  "homepage": "https://github.com/wainola/semantic_react#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^5.0.11",
+    "morgan": "^1.9.0",
+    "multer": "^1.3.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.4.2",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
 }
