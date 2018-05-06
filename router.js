@@ -3,6 +3,7 @@ const knex = require('./knexDB');
 const usuario = require('./controllers/usuario');
 const passportService = require('./services/passport');
 const passport = require('passport');
+
 // we declare middleware interceptors
 const requireSignin = passport.authenticate('local', {session:false});
 const requireAuth = passport.authenticate('jwt', {session:false});
@@ -19,7 +20,7 @@ module.exports = function(app, undefined){
         .catch(err => console.log(err));
     });
     app.get('/usuario', usuario.GetUser);
-    app.post('/signup', /*requireAuth,*/ usuario.Signup)
+    app.post('/signup', usuario.Signup)
     app.post('/signin', requireSignin, usuario.Signin);
-}
+};
 

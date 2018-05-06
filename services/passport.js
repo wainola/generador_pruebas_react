@@ -25,9 +25,20 @@ const jwtOptions = {
     secretOrKey: config.secret
 }
 
+// middleware for authenticated request over api endpoints
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
     console.log('Payload', payload);
-    return done(null, false);
+    knex('usuario').where('email', payload.sub).select('email')
+    .then(resultado => {
+        if(resultado.length !== 0){
+            done(null, resultado);
+        }else{
+            done(null, false)
+        }
+    })
+    .catch(err => {
+        done(null, false);
+    });
 });
 
 passport.use(localLogin);

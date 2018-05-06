@@ -13,7 +13,7 @@ function tokenForUser(user) {
         iat: issued at time
     */
     return jwt.encode({
-        sub: user.id,
+        sub: user.email,
         iat: timestamp
     }, config.secret);
 }
