@@ -51,15 +51,19 @@ exports.Signup = function(req, res, next){
             // first we check if exists the user
             knex('usuario').where('email', user.email).select('email')
             .then(resultado => {
-                if(resultado.length === 0){
+                if(resultado.length !== 0){
+                    console.log(resultado);
                     res.status(422).send({error: "Ya existe el usuario"});
                 }
-                knex('usuario').insert(user)
-                .then(resultado => res.json({token: tokenForUser(user)}))
-                .catch(err => {
-                    console.log(err);
-                    res.json({error: err})}
-                );
+                else{
+                    // res.json({msg: "el usuario no existe"});
+                    knex('usuario').insert(user)
+                    .then(resultado => res.json({token: tokenForUser(user)}))
+                    .catch(err => {
+                        console.log(err);
+                        res.json({error: err})}
+                    );
+                }
             });
         });
     });
