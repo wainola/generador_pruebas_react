@@ -14,5 +14,7 @@ module.exports = function(app, undefined){
         .catch(err => console.log(err));
     });
     app.get('/usuario', usuario.GetUser);
+    app.post('/signup', usuario.Signup)
+    app.post('/signin', usuario.Signin);
 }
 

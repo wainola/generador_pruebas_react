@@ -6,7 +6,7 @@ exports.up = function (knex, Promise) {
             table.string('nombre', 100).notNullable();
             table.string('apellido').notNullable();
             table.string('email').notNullable();
-            table.timestamps('fehca_creacion');
+            table.timestamps('fecha_creacion');
         }),
         knex.schema.createTable('documento', function (table) {
             table.increments('id').primary();
