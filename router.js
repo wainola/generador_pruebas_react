@@ -1,6 +1,7 @@
 // knex for query building
 const knex = require('./knexDB');
 const usuario = require('./controllers/usuario');
+const documento = require('./controllers/documento');
 const passportService = require('./services/passport');
 const passport = require('passport');
 
@@ -22,5 +23,6 @@ module.exports = function(app, undefined){
     app.get('/usuario', usuario.GetUser);
     app.post('/signup', usuario.Signup)
     app.post('/signin', requireSignin, usuario.Signin);
+    app.post('/documento', requireAuth, documento.CreateDocumento);
 };
 

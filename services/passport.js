@@ -27,6 +27,7 @@ const jwtOptions = {
 
 // middleware for authenticated request over api endpoints
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
+    console.log(jwtOptions);
     console.log('Payload', payload);
     knex('usuario').where('email', payload.sub).select('email')
     .then(resultado => {

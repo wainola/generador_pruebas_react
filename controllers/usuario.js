@@ -29,7 +29,8 @@ exports.GetUser = function(req, res, next) {
 }
 
 exports.Signin = function(req, res, next) {
-    res.json({token: tokenForUser(req.user)});
+    console.log('req user es ', req.user[0]);
+    res.json({token: tokenForUser(req.user[0])});
 }
 
 exports.Signup = function(req, res, next){
